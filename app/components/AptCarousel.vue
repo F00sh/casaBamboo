@@ -4,10 +4,9 @@
       <div v-for="(img, i) in images" :key="img" class="absolute inset-0 transition-opacity duration-500" :class="i === current ? 'opacity-100' : 'opacity-0'">
         <img :alt="`Apartment image ${i+1}`" :src="img" class="h-full w-full object-cover" />
       </div>
-      <button @click.stop="prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 p-2 text-white hover:bg-black/40" aria-label="Previous">‹</button>
-      <button @click.stop="next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 p-2 text-white hover:bg-black/40" aria-label="Next">›</button>
+      <!-- arrows removed for minimal, touch/auto navigation -->
       <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-        <span v-for="(img, i) in images" :key="'dot-'+i" class="h-1.5 w-3" :class="i===current ? 'bg-white' : 'bg-white/50'" />
+      <span v-for="(img, i) in images" :key="'dot-'+i" class="h-1.5 w-3" :class="i===current ? 'bg-white' : 'bg-white/70'" />
       </div>
     </div>
   </div>

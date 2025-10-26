@@ -1,28 +1,39 @@
 <template>
-  <section id="apartments" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-    <div class="flex items-end justify-between gap-6">
-      <div>
-        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Apartments</h2>
-        <p class="mt-2 muted">Four thoughtfully designed apartments for up to 4 guests.</p>
-      </div>
-      <a href="https://www.casa-bamboo.com/apartments" target="_blank" rel="noopener" class="hidden px-4 py-2 text-sm text-white md:inline-flex btn-primary">See availability</a>
-    </div>
-
-    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <div v-for="(apt,idx) in apartments" :key="apt.title" class="group overflow-hidden card shadow-sm transition hover:shadow-md">
-        <AptCarousel :images="apt.images" @open="(start)=>openLightbox(apt.images, start)" />
-        <div class="p-4">
-          <p class="font-medium">{{ apt.title }}</p>
-          <p class="mt-1 text-sm muted">1 bedroom • up to 4 guests</p>
+  <section id="apartments" class="min-h-screen bg-(--section-apts-bg)">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 text-(--apts-text)">
+      <div class="flex items-end justify-between gap-6 mb-20">
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl text-(--bamboo)">Apartments</h2>
+          <p class="mt-2">Four thoughtfully designed apartments for up to 4 guests.</p>
         </div>
       </div>
-    </div>
 
-    <div class="mt-6 md:hidden">
-      <a href="https://www.casa-bamboo.com/apartments" target="_blank" rel="noopener" class="inline-flex px-4 py-2 text-sm text-white btn-primary">See availability</a>
-    </div>
+      <div class="mt-10 space-y-12">
+        <div v-for="(apt,idx) in apartments" :key="apt.title" class="space-y-4 md:grid md:grid-cols-2 md:items-start md:gap-8">
+          <!-- title first -->
+          <div class="md:col-span-2">
+            <h3 class="text-xl font-semibold text-(--bamboo)">{{ apt.title }}</h3>
+          </div>
+          <!-- image second -->
+          <div class="apts-media md:order-0">
+            <AptCarousel :images="apt.images" @open="(start)=>openLightbox(apt.images, start)" />
+          </div>
+          <!-- description third -->
+          <div class="apts-text md:order-0">
+            <p class="text-(--pool)/90">1 bedroom — up to 4 guests</p>
+            <p class="muted mt-2 text-gray-500">Modern, cozy apartment with access to the pool, garden and BBQ. Short walk to the coast.</p>
+            <!-- button fourth -->
+            <div class="pt-4">
+              <a href="https://www.casa-bamboo.com/apartments" target="_blank" rel="noopener" class="inline-flex px-4 py-2 text-sm text-white btn-primary w-full sm:w-auto">See availability</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <ImageLightbox :images="lightboxImages" v-model="lightboxOpen" :start="lightboxIndex" />
+
+
+      <ImageLightbox :images="lightboxImages" v-model="lightboxOpen" :start="lightboxIndex" />
+    </div>
   </section>
 </template>
 
@@ -48,7 +59,7 @@ onMounted(async () => {
     const clean = dedup.filter(u => !/\/w_\d{1,3},h_\d{1,3}\b/i.test(u) || /w_\d{3},h_\d{3}/i.test(u))
     // distribute across apartments for now
     const groups: string[][] = [[], [], [], []]
-    clean.forEach((u, i) => groups[i % 4].push(u))
+    clean.forEach((u, i) => (groups[i % 4] ?? (groups[i % 4] = [])).push(u))
     const placeholders = [
       'https://images.unsplash.com/photo-1505691723518-36a5ac3b2a59?q=80&w=1600&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600&auto=format&fit=crop',
@@ -69,4 +80,3 @@ function openLightbox(imgs: string[], startIdx = 0){
   lightboxOpen.value = true
 }
 </script>
-

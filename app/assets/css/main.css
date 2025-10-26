@@ -2,109 +2,264 @@
 
 @layer base {
   :root {
-    /* Light theme (Day) */
-    --color-primary: #2E6D8F; /* sea blue */
-    --primary-50: #ecf3f7;
-    --primary-100: #d8e7ef;
-    --primary-200: #b7d2e1;
-    --primary-600: #285f7d;
-    --primary-700: #224f68;
-    --color-accent: #6BAA75;  /* bamboo green */
-    --accent-50: #eef6f0;
-    --accent-100: #dcede1;
-    --accent-600: #5f9968;
-    --color-secondary: #E6D3B1; /* sand beige */
-    --color-bg: #F8F8F5; /* warm lime-wash */
-    --neutral-50: #fafaf9;
-    --neutral-100: #f3f4f2;
-    --neutral-200: #e6e6e0;
-    --neutral-800: #333330;
-    --color-text: #2A2A2A; /* text primary */
-    --color-text-secondary: #6B6B6B; /* text secondary */
-    /* alias for backward compatibility */
-    --color-text-2: var(--color-text-secondary);
+    /* Light theme — 4 base colors (vibrant summer) */
+    --color-primary: #048aac;
+    /* vivid sea (pool) */
+    --color-accent: #31b96e;
+    /* vivid bamboo */
+    --color-sand: #eeca6f;
+    /* warm sand */
+    --color-bg: #ffffff;
+    /* canvas */
+    --color-text: #4d4d4d;
+    /* high-contrast text */
+
+    /* Derived from base (no new hues) */
+    --color-text-secondary: color-mix(in srgb, var(--color-text) 65%, var(--color-bg));
     --text-inverse: #ffffff;
-    --color-highlight: #D6A85E; /* sun gold */
-    --card-bg: #ffffff;
-    --surface-1: #ffffff;
-    --surface-2: #f7f7f3;
-    --surface-3: #efefe9;
-    --border-color: #e6e6e0;
-    --ring-color: #2E6D8F33;
-    --shadow-color: 0 10px 20px rgba(46,109,143,0.08);
-    --gradient-hero-from: #2E6D8F;
-    --gradient-hero-to: #6BAA75;
-    --link: #2E6D8F;
-    --link-hover: #224f68;
+    /* Solid accent cards for punchy look */
+    --card-bg: var(--color-accent);
+    --surface-1: var(--color-bg);
+    --surface-2: var(--color-bg);
+    --surface-3: var(--color-bg);
+    --border-color: transparent;
+    /* flat design: no borders */
+    --ring-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    --shadow-color: 0 10px 20px rgba(0, 0, 0, 0.08);
+    --gradient-hero-from: var(--color-primary);
+    --gradient-hero-to: var(--color-accent);
+    --link: var(--color-primary);
+    --link-hover: color-mix(in srgb, var(--color-primary) 80%, var(--color-text));
+    /* semantic tokens for Apartments section */
+    --bamboo: var(--color-accent);
+    --pool: var(--color-primary);
+    --section-apts-bg: #f5f5f5;
+    --apts-text: #343837;
   }
 
   [data-theme="dark"] {
-    /* Dark theme (Night) */
-    --color-primary: #17485D; /* deep sea blue */
-    --primary-50: #0e2e3a;
-    --primary-100: #134252;
-    --primary-200: #155068;
-    --primary-600: #133d4f;
-    --primary-700: #0f323f;
-    --color-accent: #4E7B5A;  /* dark bamboo */
-    --accent-50: #1b2a1f;
-    --accent-100: #2b4733;
-    --accent-600: #416a4c;
-    --color-secondary: #A79B83; /* warm stone */
-    --color-bg: #1B1E1D; /* olive-tinted dark */
-    --neutral-50: #1f2422;
-    --neutral-100: #222826;
-    --neutral-200: #2a2e2c;
-    --neutral-800: #d8d8d8;
-    --color-text: #F1F1F1; /* text primary */
-    --color-text-secondary: #B6B6B6; /* text secondary */
-    /* alias for backward compatibility */
-    --color-text-2: var(--color-text-secondary);
-    --text-inverse: #101211;
-    --color-highlight: #C89C53; /* soft gold */
-    --card-bg: #202422;
-    --surface-1: #202422;
-    --surface-2: #232826;
-    --surface-3: #262c2a;
-    --border-color: #2a2e2c;
-    --ring-color: #17485D66;
-    --shadow-color: 0 10px 20px rgba(0,0,0,0.25);
-    --gradient-hero-from: #17485D;
-    --gradient-hero-to: #4E7B5A;
-    --link: #9cc3d7;
-    --link-hover: #b9d6e3;
+    /* Dark theme — 4 base colors (vibrant summer) */
+    --color-primary: #1691af;
+    /* deep vivid sea (pool) */
+    --color-accent: #27bd6d;
+    /* deep vivid bamboo */
+    --color-sand: #e4be67;
+    /* deeper sand */
+    --color-bg: #000000;
+    /* near-black */
+    --color-text: #a8a8a8;
+    /* high-contrast text */
+
+    /* Derived from base */
+    --color-text-secondary: color-mix(in srgb, var(--color-text) 70%, var(--color-bg));
+    --text-inverse: #0E1312;
+    --card-bg: var(--color-accent);
+    --surface-1: var(--color-bg);
+    --surface-2: var(--color-bg);
+    --surface-3: var(--color-bg);
+    --border-color: transparent;
+    /* flat design: no borders */
+    --ring-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    --shadow-color: 0 10px 20px rgba(0, 0, 0, 0.25);
+    --gradient-hero-from: var(--color-primary);
+    --gradient-hero-to: var(--color-accent);
+    --link: color-mix(in srgb, var(--color-primary) 80%, white);
+    --link-hover: color-mix(in srgb, var(--color-primary) 60%, white);
+    /* semantic tokens for Apartments section in dark theme */
+    --bamboo: var(--color-accent);
+    --pool: var(--color-primary);
+    --section-apts-bg: #1a1a1a;
+    /* dark gray background */
+    --apts-text: #e8e8e8;
+    /* light text */
   }
 
-  html, body {
-    font-family: "Lato", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  html,
+  body {
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     background: var(--color-bg);
     color: var(--color-text);
   }
-  h1, h2, h3 {
-    font-family: "Cinzel", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     letter-spacing: -0.01em;
   }
 }
 
 /* Utility for titles outside heading tags (e.g., brand) */
+/* Alias previous serif to new sans for consistency */
 .font-cinzel {
-  font-family: "Cinzel", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 }
 
 /* Theme utility classes */
-.muted { color: var(--color-text-secondary); }
-.card { background: var(--card-bg); border: 1px solid var(--border-color); }
-.btn-primary { background: var(--color-primary); color: #fff; }
-.btn-primary:hover { filter: brightness(0.95); }
-.btn-accent { background: var(--color-accent); color: #0b120d; }
-.btn-accent:hover { filter: brightness(0.95); }
-.btn-outline { border: 1px solid var(--color-accent); color: var(--color-accent); background: transparent; }
-.btn-outline:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.muted {
+  color: var(--color-text-secondary);
+}
 
-.bg-surface-1 { background: var(--surface-1); }
-.bg-surface-2 { background: var(--surface-2); }
-.bg-surface-3 { background: var(--surface-3); }
-.text-inverse { color: var(--text-inverse); }
-.ring-primary { box-shadow: 0 0 0 3px var(--ring-color); }
-.shadow-soft { box-shadow: var(--shadow-color); }
-.hover-accent:hover { color: var(--link-hover); }
+.card {
+  background: var(--card-bg);
+  border: none;
+  text-align: center;
+  border-radius: 0;
+  color: #ffffff;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-sand {
+  background: var(--color-sand);
+  color: #0F1211;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-accent:hover {
+  filter: brightness(0.95);
+}
+
+.btn-outline {
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline:hover {
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.bg-surface-1 {
+  background: var(--surface-1);
+}
+
+.bg-surface-2 {
+  background: var(--surface-2);
+}
+
+.bg-surface-3 {
+  background: var(--surface-3);
+}
+
+.text-inverse {
+  color: var(--text-inverse);
+}
+
+.ring-primary {
+  box-shadow: 0 0 0 3px var(--ring-color);
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-color);
+}
+
+.hover-accent:hover {
+  color: var(--link-hover);
+}
+
+/* Parallax background for sections */
+:root {
+  --amenities-bg: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920&auto=format&fit=crop');
+}
+
+.amenities-parallax {
+  position: relative;
+  background-image: var(--amenities-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+:root {
+  --contact-bg: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1920&auto=format&fit=crop');
+}
+
+.contact-parallax {
+  position: relative;
+  background-image: var(--contact-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Utilities */
+.bg-accent {
+  background: var(--color-accent);
+}
+
+/* Apartment cards: gray backgrounds with readable text */
+.apt-card {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  border: 1px solid color-mix(in srgb, var(--color-text) 18%, var(--color-bg)) !important;
+}
+
+/* Apartments section responsive tweaks */
+@media (max-width: 640px) {
+
+  /* Stack as: title, carousel, details, button (already in DOM order) */
+  #apartments .apts-media {
+    order: 2;
+  }
+
+  #apartments .apts-text {
+    order: 3;
+  }
+}
+
+[data-theme="dark"] .apt-card {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  border-color: color-mix(in srgb, var(--color-text) 24%, var(--color-bg)) !important;
+}
+
+.apt-card p+p {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Typography variation within cards */
+.card h3,
+.card h4 {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.card p:first-of-type {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* No round corners site‑wide */
+button,
+a,
+input,
+textarea,
+select,
+img,
+iframe {
+  border-radius: 0 !important;
+}
+
+.card p+p {
+  color: color-mix(in srgb, white 80%, transparent);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}

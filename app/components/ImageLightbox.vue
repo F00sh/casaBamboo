@@ -1,14 +1,14 @@
 <template>
-  <div v-if="open" class="fixed inset-0 z-[100] bg-black/80 text-white">
+  <div v-if="open" class="fixed inset-0 z-[100] bg-black/90 text-white text-center">
     <div class="absolute inset-0" @click="close" />
     <div class="absolute inset-0 flex items-center justify-center px-2">
       <img :src="images[current]" :alt="`Image ${current+1}`" class="max-h-[90vh] max-w-[92vw] object-contain" />
     </div>
-    <button @click.stop="prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 p-2 hover:bg-white/20">‹</button>
-    <button @click.stop="next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 p-2 hover:bg-white/20">›</button>
-    <button @click="close" class="absolute right-4 top-4 bg-white/10 px-3 py-1 hover:bg-white/20">Close</button>
+    <button @click.stop="prev" class="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white hover:brightness-110" :style="{ background: 'var(--color-primary)' }">‹</button>
+    <button @click.stop="next" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white hover:brightness-110" :style="{ background: 'var(--color-primary)' }">›</button>
+    <button @click="close" class="absolute right-4 top-4 px-3 py-1 text-white hover:brightness-110" :style="{ background: 'var(--color-primary)' }">Close</button>
     <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-      <span v-for="(img,i) in images" :key="'dot-'+i" class="h-1.5 w-3" :class="i===current?'bg-white':'bg-white/50'" />
+      <span v-for="(img,i) in images" :key="'dot-'+i" class="h-1.5 w-3" :class="i===current?'bg-white':'bg-white/80'" />
     </div>
   </div>
 </template>
@@ -52,4 +52,3 @@ function onTouchEnd(ev: TouchEvent){
 .fixed.inset-0 { touch-action: pan-y; }
 .fixed.inset-0 img { user-select: none; }
 </style>
-
