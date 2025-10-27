@@ -108,6 +108,32 @@
   color: #ffffff;
 }
 
+/* Glassy green cards inside Amenities section */
+.amenities-parallax .card {
+  /* 70% transparency on green accent */
+  background: color-mix(in srgb, var(--card-bg) 30%, transparent);
+  /* Fallback for older browsers */
+  background-color: rgba(39, 189, 109, 0.3); /* approx var(--color-accent) */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Glassy green cards inside Contact section */
+.contact-parallax .card {
+  /* 70% transparency on green accent */
+  background: color-mix(in srgb, var(--card-bg) 30%, transparent);
+  /* Fallback for older browsers */
+  background-color: rgba(39, 189, 109, 0.3); /* approx var(--color-accent) */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
 .btn-primary {
   background: var(--color-primary);
   color: #fff;
@@ -143,6 +169,21 @@
 
 .btn-outline:hover {
   background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+/* Glass effect utility for CTAs on imagery */
+.btn-glass {
+  background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  background-color: rgba(39, 189, 109, 0.3); /* fallback */
+  color: #fff;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.btn-glass:hover {
+  filter: brightness(1.05);
 }
 
 .bg-surface-1 {
@@ -196,6 +237,25 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+/* Glassy pool-blue navbar and dropdown */
+.nav-glass {
+  background: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  background-color: rgba(22, 145, 175, 0.3); /* fallback approx pool */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.dropdown-glass {
+  background: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  background-color: rgba(22, 145, 175, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
 }
 
 /* Utilities */

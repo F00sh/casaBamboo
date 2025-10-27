@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen">
-    <header class="sticky top-0 z-40 backdrop-blur transition-transform duration-300" :class="[hiddenHeader ? '-translate-y-full' : 'translate-y-0']" :style="{ background: 'var(--color-bg)' }">
+    <header class="sticky top-0 z-40 backdrop-blur transition-transform duration-300 nav-glass" :class="[hiddenHeader ? '-translate-y-full' : 'translate-y-0']">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="#" class="flex items-center gap-2 group">
           <span class="inline-block h-2 w-2 transition" :style="{ background: 'var(--color-accent)' }"></span>
@@ -22,7 +22,7 @@
         </button>
       </div>
       <div v-if="open" class="md:hidden">
-        <nav class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:px-6 lg:px-8 bg-transparent">
+        <nav class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:px-6 lg:px-8 dropdown-glass">
           <a href="#apartments" class="py-2">Apartments</a>
           <a href="#amenities" class="py-2">Amenities</a>
           <a href="#location" class="py-2">Location</a>
